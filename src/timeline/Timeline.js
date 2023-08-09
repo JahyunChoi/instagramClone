@@ -7,6 +7,12 @@ import Post from './posts/Post';
 function Timeline() {
   const [posts, setPosts] = useState([
     {
+      user: "kanginleeoficial",
+      poseImage: "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202307/06/f6172498-7909-4050-b835-ef2822ecc26e.jpg",
+      likes: 12,
+      timestamp: "8h"
+    },
+    {
       user: "yalruu",
       poseImage: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
       likes: 12,
