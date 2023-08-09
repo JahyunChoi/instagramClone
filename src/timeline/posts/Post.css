@@ -42,8 +42,11 @@
   justify-content: space-between;
 }
 
+.postIcon{
+  padding: 7px;
+  font-size: 30px;
+}
+
 .postIcon:hover{
   cursor: pointer;
-  
-
 }
