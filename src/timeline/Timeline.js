@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./Timeline.css";
-import Sugesstions from './Sugesstions';
+import Sugesstions from '../sugesstions/Sugesstions';
 import Post from './posts/Post';
 
 
