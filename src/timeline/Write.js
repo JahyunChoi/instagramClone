@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import "./Write.css"
+import { Link } from "react-router-dom"
+
 
 
 class Write extends Component {
@@ -13,7 +15,9 @@ class Write extends Component {
         <div className='writ__epage'>
           <div className='write__area'>
             <input className="text__box" type="text"/>
-            <button className="sand">글쓰기완료</button>
+            <button className="sand">
+            <Link to="/">글쓰기완료</Link>
+              </button>
           </div>
         </div>
     );

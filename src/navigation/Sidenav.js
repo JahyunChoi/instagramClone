@@ -9,6 +9,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import CreateIcon from '@mui/icons-material/Create';
+import { Link } from "react-router-dom"
+
 
 function Sidenav() {
   return (
@@ -19,7 +21,7 @@ function Sidenav() {
 
       <button className="sidenav__button">
           <CreateIcon />
-          <span>Add Feed +</span>
+          <Link to="write">Add Feed +</Link>
         </button>
 
         <button className="sidenav__button">

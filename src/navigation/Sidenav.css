@@ -40,6 +40,11 @@
   margin-left: 10px;
 }
 
+.sidenav__button > Link{
+ 
+}
+
+
 .sidenav__more{
   position: fixed;
   bottom: 3px;
