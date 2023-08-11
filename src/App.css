@@ -1,4 +1,25 @@
-html {
+.app__ {
   background-color: #F6F6F6;
   color: black;
+  display: flex;
+  flex-direction: row;
 }
+
+
+.nav__{
+  border-right: 1px solid rgb(172, 172, 172);
+  min-width: 200px;
+  flex: 0.15;
+}
+
+.timeline__{
+  flex: 0.55;
+  display: flex;
+  justify-content: center;
+}
+
+.sugesstions__{
+  /* border: 1px solid black; */
+  flex: 0.3;
+}
+

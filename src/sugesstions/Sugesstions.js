@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Suggestion.css";
+import "./Suggestions.css";
 import { Avatar } from '@mui/material';
 
 function Sugesstions() {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./Timeline.css";
-import Sugesstions from '../sugesstions/Sugesstions';
 import Post from './posts/Post';
 
 
@@ -35,7 +34,6 @@ function Timeline() {
 
 
   return <div className="timeline">
-    <div className="timeline__left">
       <div className="timeline__posts">
         {posts.map((post) => (
           <Post 
@@ -46,9 +44,7 @@ function Timeline() {
           />
         ))}
       </div>
-    </div>
     <div className="timeline__right">
-      <Sugesstions />
     </div>
   </div>
   
