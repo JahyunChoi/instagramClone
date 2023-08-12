@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import "./Write.css"
 import { Link } from "react-router-dom"
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
+import IconButton from '@mui/material/IconButton';
 
 
 
 class Write extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
 
   render() {
 
     return (
-        <div className='writ__epage'>
-          <div className='write__area'>
-            <input className="text__box" type="text"/>
-            <button className="sand">
-            <Link to="/">글쓰기완료</Link>
-              </button>
+        <div className='write__page'>
+          <div className='write__area'>           
+             
+                <div className="write__dragBox">
+                  <IconButton><ControlPointIcon  className= "dragBox__icon" /></IconButton>
+                  <p className = "dragBox__text">drag or choose your image to share</p>
+              </div>                
+           
+          
+            <div className="write__send">
+              <input className = "write__input" type="text"/>
+              <button className = "write__button">
+              <Link to="/" className="Link">SEND</Link>
+                </button>
+            </div>
           </div>
         </div>
     );
@@ -27,4 +38,3 @@ class Write extends Component {
 export default Write;
 
 
-// 사이드에붙고 작성페이지는 타임라인만 적용?쿨!

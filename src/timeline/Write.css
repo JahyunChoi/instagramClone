@@ -1,12 +1,70 @@
 .write__page{
+  background: #F6F6F6;
+  color: black;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .write__area{
+  border: 10px solid rgb(255, 255, 255);
+  border-radius: 30px;
+  display: flex;
+  flex-direction : column;
+  justify-content: center;
+  align-items: center;
+    
+}
+
+.write__dragBox{
+  /* border: 1px solid red; */
+  height: 400px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dragBox__icon{
+  font-size: 80px;
+  padding: 120px;
+}
+
+.dragBox__text{
+  opacity: 0.3;
 
 }
 
-.text__box{
-  
+
+.write__send{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 100px;
+  background: none;
+
+}
+.write__input{
+  border: 1px solid black;
+  width: 350px;
+  height: 100px;
+  border: none;
+}
+
+.write__button{
+  border: none;
+  text-decoration: none;
+  height: 100px;
+  background: rgb(229, 205, 251);
+  border-radius: 0  0 px 0;
+
+}
+
+.Link{
+  text-decoration: none;
+  color: rgb(125, 125, 125);
+  font-style: italic;
+  font-weight: bold;
 }

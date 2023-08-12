@@ -1,8 +1,10 @@
 .app__ {
-  background-color: #F6F6F6;
+  background: #F6F6F6;
   color: black;
   display: flex;
   flex-direction: row;
+  height: auto;
+  min-height: 100vh;
 }
 
 
@@ -22,4 +24,3 @@
   /* border: 1px solid black; */
   flex: 0.3;
 }
-
