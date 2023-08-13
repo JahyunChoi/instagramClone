@@ -24,6 +24,18 @@
   font-size: 15px;
 }
 
+.post__button{
+  border: none;
+  background: lightgray;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.post__button:hover{
+  opacity: 0.7;
+
+}
+
 .post__image > img{
   width: 100%;
   border-radius: 6px;
@@ -48,4 +60,31 @@
 
 .postIcon:hover{
   cursor: pointer;
+}
+
+.post__like{
+
+}
+.reply__input{
+  border-bottom: 1px solid lightgray;
+  height: auto;
+  width: auto;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: #F6F6F6;
+  
+}
+.reply__input:focus {
+  outline:none;}
+
+.reply_moreButton{
+  border: none;
+  background: none;
+  margin-left: 5px;
+  padding: 5px;
+  font-style: italic;
+  
+}
+.reply_moreButton:hover{
 }

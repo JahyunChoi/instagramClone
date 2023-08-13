@@ -50,7 +50,6 @@ function Timeline() {
       </div>
       <div className="timeline__write">
         {/* Write 컴포넌트를 여기에 추가하고 addPost 함수를 props로 전달 */}
-        {/* <Write addPost={addPost} /> */}
       </div>
   </div>
 }
