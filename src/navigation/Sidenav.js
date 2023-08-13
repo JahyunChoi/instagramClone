@@ -21,7 +21,7 @@ function Sidenav() {
 
       <button className="sidenav__button">
           <CreateIcon />
-          <Link to="write">Add Feed +</Link>
+          <Link to="write" className="Link__text">Add Feed +</Link>
         </button>
 
         <button className="sidenav__button">

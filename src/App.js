@@ -16,8 +16,8 @@ function App() {
             </div>
             <div className='timeline__'>
             <Routes>
-              <Route path='/' element={<Timeline></Timeline>} />
-              <Route path='/Write' element={<Write></Write>} />
+              <Route path='/' element={<Timeline />} />
+              <Route path='/Write' element={<Write />} />
             </Routes>     
             </div>
             <div className='sugesstions__'>

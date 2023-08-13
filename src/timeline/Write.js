@@ -11,9 +11,7 @@ class Write extends Component {
         super(props);
         this.state = {
             image: null,
-            preview: null,
-            isDragging: false,
-            position: { x: 0, y: 0 }
+            preview: null
         };
     }
 
@@ -62,31 +60,6 @@ class Write extends Component {
         }
     }
 
-    handleMouseDown = (e) => {
-        this.setState({
-            isDragging: true,
-            position: { x: e.clientX, y: e.clientY }
-        });
-    }
-
-    handleMouseMove = (e) => {
-        if (!this.state.isDragging) return;
-
-        const dx = e.clientX - this.state.position.x;
-        const dy = e.clientY - this.state.position.y;
-
-        const img = e.target;
-
-        img.style.left = `${img.offsetLeft + dx}px`;
-        img.style.top = `${img.offsetTop + dy}px`;
-
-        this.setState({ position: { x: e.clientX, y: e.clientY } });
-    }
-
-    handleMouseUp = () => {
-        this.setState({ isDragging: false });
-    }
-
     handleRemovePreview = () => {
         this.setState({
             image: null,
@@ -97,14 +70,47 @@ class Write extends Component {
         }
     }
 
+    handleDragOver = (e) => {
+        e.preventDefault();
+    }
+
+    handleDragEnter = (e) => {
+        e.preventDefault();
+    }
+
+    handleDrop = (e) => {
+        e.preventDefault();
+
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith("image/")) {
+            const reader = new FileReader();
+
+            reader.onloadend = () => {
+                this.setState({
+                    preview: reader.result
+                });
+            };
+
+            reader.readAsDataURL(file);
+            this.setState({ image: file });
+        }
+    }
+
     render() {
         return (
-            <div className='write__page'>
-                <div className='write__area'>
-                    <div className="write__dragBox">
+            <div className='makingFeed'>
+                <div className='write__box'>
+                    <div 
+                        className="photo__dragBox"
+                        onDragOver={this.handleDragOver}
+                        onDragEnter={this.handleDragEnter}
+                        onDrop={this.handleDrop}
+                    >
                         <input
+                            className="photo__inputFile"
                             type="file"
                             accept="image/*"
+                            //이거왜css에서안빠지지?
                             style={{ display: 'none' }}
                             onChange={this.handleImageChange}
                             ref={fileInput => this.fileInput = fileInput}
@@ -113,13 +119,8 @@ class Write extends Component {
                         {this.state.preview && 
                             <>
                                 <img 
-                                    src={this.state.preview} 
-                                    alt="Image Preview" 
-                                    style={{ width: '100px', height: '100px', position: 'absolute' }}
-                                    onMouseDown={this.handleMouseDown}
-                                    onMouseMove={this.handleMouseMove}
-                                    onMouseUp={this.handleMouseUp}
-                                    onMouseLeave={this.handleMouseUp}
+                                    className='dragBox__image'
+                                    src={this.state.preview}                                     
                                 />
                                 <IconButton onClick={this.handleRemovePreview} style={{ position: 'absolute', top: '0', right: '0' }}><CloseIcon /></IconButton>
                             </>

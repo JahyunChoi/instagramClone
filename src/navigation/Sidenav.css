@@ -16,6 +16,15 @@
   flex-direction: column;
 }
 
+.Link__text{
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bolder;
+  margin-left: 10px;
+  color: #252525;
+  
+}
+
 .sidenav__button{
   display: flex;
   flex-direction: row;
@@ -40,9 +49,7 @@
   margin-left: 10px;
 }
 
-.sidenav__button > Link{
- 
-}
+
 
 .sidenav__more{
   position: fixed;
