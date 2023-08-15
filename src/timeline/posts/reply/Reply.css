@@ -1,0 +1,59 @@
+.reply{
+  display: flex;
+  /* font-size: 19px; */
+}
+
+.reply__inputs{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.reply__nameInput{
+  border-bottom: 1px solid lightgray;
+  height: 14px;
+  width: 80px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: #F6F6F6;
+  resize: none;
+}
+
+.reply__commentInput{
+  
+}
+
+
+.reply__input{
+  border-bottom: 1px solid lightgray;
+  height: 14px;
+  width: 480px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: #F6F6F6;
+  resize: none;
+}
+.reply__input:focus {
+  outline:none;
+  width: 480px;
+}
+
+.reply__endButton {
+  border: none;
+  background: rgb(0, 0, 0);
+  margin-left: 5px;
+  font-style: italic;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  width: 60px;
+  text-align: center;
+}
+
+
+
+
+
+
+
