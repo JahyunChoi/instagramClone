@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close'; // 프리뷰 끄는 아이콘
 import axios from 'axios';
 
+
 function Write({ addPost }) {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -13,6 +14,7 @@ function Write({ addPost }) {
   const [description, setDescription] = useState("");
   const fileInput = useRef(); // useRef를 사용하여 ref를 생성
   const navigate = useNavigate();
+  
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -61,6 +63,30 @@ function Write({ addPost }) {
         timestamp: "just now",
         description: description
       };
+
+
+
+
+      fetch('http://localhost:3001/posts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newPost)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // 저장 성공 후, Timeline 페이지로 리다이렉트
+            navigate('/');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+
+
+
 
       addPost(newPost);
 
