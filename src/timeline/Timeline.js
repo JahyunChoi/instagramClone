@@ -1,69 +1,52 @@
-import React, { useState } from 'react';
-import "./Timeline.css";
+import React, { useEffect, useState } from 'react';
+import './Timeline.css';
 import Post from './posts/Post';
-import Replylist from './posts/reply/Replylist';
-import Write from './Write';
-
-
-
+// import Replylist from './posts/reply/Replylist';
+// import Write from './Write';
+// import { axiosInstance } from '../apis/instance';
+import { getPeedsAll } from '../apis/peeds';
 
 function Timeline() {
-  const addPost = (newPost) => {
-    setPosts((prevPosts) => [newPost, ...prevPosts]);
+  const [posts, setPosts] = useState();
+
+  useEffect(() => {
+    getPeedsAll().then((res) => {
+      setPosts(res.data);
+    });
+  }, []);
+
+  const getPostAll = async () => {
+    const res = await getPeedsAll();
+    console.log(res);
+    setPosts(res.data);
   };
-  const [posts, setPosts] = useState([
-    {
-      user: "kanginleeoficial",
-      poseImage: "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202307/06/f6172498-7909-4050-b835-ef2822ecc26e.jpg",
-      likes: 12,
-      hates: 0,
-      timestamp: "8h",
-      replyNum: "00"
 
-    },
-    {
-      user: "yalruu",
-      poseImage: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
-      likes: 12,
-      hates: 0,
-      timestamp: "8h"
-    },
-    {
-      user: "hello_",
-      poseImage: "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80",
-      likes: 55,
-      hates: 0,
-      timestamp: "2d"
-    },
-    {
-      user: "itsme",
-      poseImage: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
-      likes: 29,
-      hates: 0,
-      timestamp: "12",
-    },
-    
-  ]);
-
-
-  return <div className="timeline">
+  // const addPost = (newPost) => {
+  //   setPosts((prevPosts) => [newPost, ...prevPosts]);
+  // };
+  return (
+    <div className="timeline">
       <div className="timeline__post">
-        {posts.map((post) => (
-          <Post 
-            user={post.user} 
-            postImage={post.poseImage} 
-            likes={post.likes} 
-            hates={post.hates}
-            timestamp={post.timestamp} 
-            replyNum={Replylist.replyNum} 
+        {posts?.map((post) => (
+          <Post
+            key={post?.id}
+            peedId={post?.id}
+            user={post?.userName}
+            postImage={post?.poseImage}
+            likes={post?.heart.liked}
+            hates={post?.heart.dislike}
+            comments={post?.comments}
+            getPostAll={getPostAll}
+            // replyNum={Replylist.replyNum}
           />
         ))}
       </div>
       <div className="timeline__write">
         {/* Write 컴포넌트를 여기에 추가하고 addPost 함수를 props로 전달?하라는디 */}
-        <Write addPost={addPost} />
+        {/* <Write addPost={addPost} /> */}
       </div>
-  </div>
+    </div>
+  );
 }
 
 export default Timeline;

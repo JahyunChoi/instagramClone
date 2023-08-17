@@ -1,13 +1,12 @@
 .reply{
   display: flex;
-  /* font-size: 19px; */
+  margin: 0 0 10px 0;
+  justify-content: space-between;
 }
 
 .reply__inputs{
   display: flex;
-  flex-direction: column;
 }
-
 
 .reply__nameInput{
   border-bottom: 1px solid lightgray;
@@ -18,26 +17,26 @@
   border-right: none;
   background: #F6F6F6;
   resize: none;
+  overflow: hidden;
+}
+.reply__nameInput:hover{
+  resize: none;
+  overflow: hidden;
 }
 
 .reply__commentInput{
-  
-}
-
-
-.reply__input{
   border-bottom: 1px solid lightgray;
   height: 14px;
-  width: 480px;
+  width: 400px;
   border-top: none;
   border-left: none;
   border-right: none;
   background: #F6F6F6;
   resize: none;
+
 }
-.reply__input:focus {
+.reply__commentInput:focus {
   outline:none;
-  width: 480px;
 }
 
 .reply__endButton {
@@ -51,6 +50,9 @@
   text-align: center;
 }
 
+.reply__endButton:hover{
+  background: rgb(119, 119, 119);
+}
 
 
 

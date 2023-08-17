@@ -45,31 +45,30 @@
 .post__footer{
 }
 
-.post__footerIcons{
+.post__Icons{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-}
-.post__iconButtons{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  padding: 5px 0;
+  /* justify-content: space-between; */
 }
 
-.post__iconButton{
- 
+.post__iconButton{ 
   border: none;
   background: none;
+   /* mui아이콘 우측정렬! */
 }
 
-.postIcon{
-  padding: 7px;
-  font-size: 30px;
-}
-
-.postIcon:hover{
+.post__iconButton:hover{
   cursor: pointer;
+}
+
+.post__num{
+  display: flex;
+}
+
+.post__num div{
+  padding:0px 10px 5px 0;
 }
 
 .reply__area{

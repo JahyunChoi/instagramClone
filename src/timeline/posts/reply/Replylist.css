@@ -1,45 +1,57 @@
 .replyList {
-
-padding: 10px;
+width: 550px;
 }
 
 .reply__source {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   color: rgb(46, 46, 46);
   font-size: 14px;
   background: #eaeaea;
 }
-
+/* 댓글이름 */
 .replyList strong {
   font-weight: bold;
   margin-right: 10px;
 }
-
+/* 댓글내용 */
 .replyList p {
   display: inline;
   margin: 0;
+  
 }
 
+.reply__contents{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+.reply__content{
+  /* max-width: 480px; */
+}
+
+
+.reply__Buttons{
+  color: rgb(82, 82, 82);
+ 
+}
+/* 대댓버튼 */
+.reply__makeButton{
+  border: none;
+  margin-left: 3px;
+  padding: 0;
+  background: none;
+  color: rgb(130, 74, 0);
+} 
+.reply__makeButton:hover{
+  background: rgb(223, 223, 223);
+}
+/* 삭제버튼 */
 .reply__delete{
   border: none;
-  margin-left: 5px;
-  font-size: 14px;
-  color: gray;
-  width: 60px;
-  text-align: right;
   background: none;
+  margin-left: 10px;
+} 
+.reply__delete:hover{
+  background: rgb(223, 223, 223);
 }
-
-.reply__item strong {
-  display: block;
-  font-size: 14px;
-  color: #333;
-}
-
-.reply__item p {
-  margin: 0;
-  font-size: 12px;
-  color: #555;
-}
-
