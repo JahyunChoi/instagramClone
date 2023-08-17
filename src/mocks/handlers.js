@@ -11,6 +11,7 @@ const peeds = [
       fileName: 'image144254176.helping-hand.png',
       filePath: 'images\\2023\\8\\14',
     },
+    postText: '인스타그램의 내용을 입력.',
     content: '댓글1',
     comments: [
       {

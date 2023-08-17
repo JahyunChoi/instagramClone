@@ -9,10 +9,8 @@ import Replylist from './reply/Replylist';
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
 import { createReply, deleteReply, createUnderReply } from '../../apis/commets';
 
-function Post({ peedId, user, postImage, likes, hates, comments, getPostAll }) {
+function Post({ peedId, user, postImage, likes, hates, comments, getPostAll, postText }) {
  
-  const [replies, setReplies] = useState(comments);
-  console.log(comments, 'comments');
 
   const addReply = async (peedId, newReply, type) => {
     if (type === 'up') {
@@ -35,7 +33,7 @@ function Post({ peedId, user, postImage, likes, hates, comments, getPostAll }) {
 
   return (
     <div className="post">
-      <div className="post__header">
+      <div className="post__header"> 
         {/* api연동 */}
         <div className="post__headerAuthor">
           <Avatar>{user.charAt(0).toUpperCase()}</Avatar>
@@ -51,6 +49,7 @@ function Post({ peedId, user, postImage, likes, hates, comments, getPostAll }) {
       {/* api연동 */}
       <div className="post__image">
         {/* 이미지 임시 정적으로 가져오기 */}
+        {/* postImage로 가져와야할듯 */}
         <img
           src={
             'https://images.unsplash.com/photo-1598294977926-babe20bba219?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80'
@@ -72,16 +71,17 @@ function Post({ peedId, user, postImage, likes, hates, comments, getPostAll }) {
             <div>좋아요 {likes}개, </div>
             <div>글쎄요 {hates}개</div>
           </div>
-        <div>         
-          <div className="reply__area">           
-            <button className="reply_num"> {comments.length}개의 댓글</button>
-            <Replylist
-              replies={comments}
-              removeReply={removeReply}
-              addReply={addReply}
-            />
-             <Reply peedId={peedId} addReply={addReply} type={'up'} />
-          </div>
+        <div>    
+        <div className='post__text'>{postText}</div>     
+        <div className="reply__area">           
+          <button className="reply_num"> {comments.length}개의 댓글</button>
+          <Replylist
+            replies={comments}
+            removeReply={removeReply}
+            addReply={addReply}
+          />
+            <Reply peedId={peedId} addReply={addReply} type={'up'} />
+        </div>
         </div>
       </div>
     </div>

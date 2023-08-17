@@ -6,9 +6,9 @@ import Sugesstions from './sugesstions/Sugesstions';
 import Sidenav from './navigation/Sidenav';
 
 import { worker } from './mocks/worker';
-if (process.env.NODE_ENV === 'development') {
-  worker.start();
-}
+// if (process.env.NODE_ENV === 'development') {
+//   worker.start();
+// }
 
 function App() {
   return (

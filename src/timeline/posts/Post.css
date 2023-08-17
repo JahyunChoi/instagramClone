@@ -68,8 +68,18 @@
 }
 
 .post__num div{
-  padding:0px 10px 5px 0;
+  padding:0px 10px 5px 0; 
 }
+
+
+
+.post__text { 
+  border: 1px solid black;
+  height: 100px;
+}
+
+
+
 
 .reply__area{
   display: flex;

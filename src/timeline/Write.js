@@ -10,20 +10,12 @@ function Write({ addPost }) {
   const [image, setImage] = useState();
   const [preview, setPreview] = useState(null);
   const [userName, setUserName] = useState('');
-  const [content, setContent] = useState('');
+  const [postText, setPostText] = useState('');
   const fileInput = useRef(); // useRef를 사용하여 ref를 생성
   const navigate = useNavigate();
 
   const handleImageChange = (e) => {
-    // const uploadFile = e.target.files[0];
-    // const formData = new FormData();
-    // formData.append('image', uploadFile);
-
-    // console.log(formData, 'formData');
-
-    // console.log(uploadFile, 'uploadFile');
-    // setImage(formData);
-
+  
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -40,70 +32,46 @@ function Write({ addPost }) {
     }
   };
 
+//지금보낸게제이슨
+//보내는 형식이 안맞아서 오류나는것같다
+//유저이름, 
+//500 서버에러
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submit button was clicked'); // <-- Add this line
+    console.log('Submit button was clicked'); 
 
-    await axiosInstance.post('/peeds/peed', {
-      userName: userName,
-      content: content,
-      image: image,
-    });
+  const peedDTO = {
+    userName : "test",
+    content : "test"    
+  }
+
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data', // enctype 설정
+    },
+  };
+
+  await axiosInstance.post('/peeds/peed', {
+    peedDTO: peedDTO,
+    image: image,
+    
+  }, config
+  );
+
+
+
+
+  try {
+    const response = await apiInstance.post('/upload', formData, config);
+    console.log('File uploaded successfully:', response.data);
+  } catch (error) {
+    console.error('Error uploading file:', error);
+  }
+
+
+
 
     navigate('/');
-    // if (!image) {
-    //   console.error('이미지를 선택해주세요.');
-    //   return;
-    // }
-
-    // const formData = new FormData();
-    // formData.append('image', image);
-
-    // try {
-    //   const response = await axios.post(
-    //     'https://your-api-endpoint/upload',
-    //     formData,
-    //     {
-    //       headers: {
-    //         'Content-Type': 'multipart/form-data',
-    //       },
-    //     }
-    //   );
-
-    //   console.log('업로드 성공:', response.data);
-
-    //   const newPost = {
-    //     user: userName,
-    //     poseImage: preview,
-    //     likes: 0,
-    //     hates: 0,
-    //     timestamp: 'just now',
-    //     description: description,
-    //   };
-
-    //   fetch('http://localhost:3001/posts', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(newPost),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       console.log('Success:', data);
-    //       // 저장 성공 후, Timeline 페이지로 리다이렉트
-    //       navigate('/');
-    //     })
-    //     .catch((error) => {
-    //       console.error('Error:', error);
-    //     });
-
-    //   addPost(newPost);
-
-    //   navigate('/');
-    // } catch (error) {
-    //   console.error('이미지 업로드 중 에러 발생:', error);
-    // }
   };
 
   const handleRemovePreview = () => {
@@ -143,7 +111,6 @@ function Write({ addPost }) {
       <div className="write__container">
         <div
           className="photo__dragBox"
-          //오버랑 엔터는 디폴트루가는데 왜? 드랍은함수가있고..
           onDragOver={handleDragOver}
           onDragEnter={handleDragEnter}
           onDrop={handleDrop}
@@ -153,7 +120,7 @@ function Write({ addPost }) {
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-            ref={fileInput} // fileInput이 useRef로 생성된 ref이므로, 이렇게 설정합니다.
+            ref={fileInput} // fileInput이 useRef로 생성된 ref이므로, 이렇게 설정
           />
 
           {/* 이미지가 첨부되지 않은 상태에서만 아이콘과 텍스트 표시 */}
@@ -197,8 +164,8 @@ function Write({ addPost }) {
               className="write__textarea"
               type="text"
               placeholder="write something..."
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
+              value={postText}
+              onChange={(e) => setPostText(e.target.value)}
             />
           </div>
           <button className="write__button" onClick={handleSubmit}>

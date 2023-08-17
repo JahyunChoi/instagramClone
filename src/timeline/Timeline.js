@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './Timeline.css';
 import Post from './posts/Post';
-// import Replylist from './posts/reply/Replylist';
-// import Write from './Write';
-// import { axiosInstance } from '../apis/instance';
+
 import { getPeedsAll } from '../apis/peeds';
 
+
 function Timeline() {
-  const [posts, setPosts] = useState();
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     getPeedsAll().then((res) => {
+      console.log("Server Response:", res.data); // API 응답 확인
       setPosts(res.data);
     });
   }, []);
@@ -21,9 +21,6 @@ function Timeline() {
     setPosts(res.data);
   };
 
-  // const addPost = (newPost) => {
-  //   setPosts((prevPosts) => [newPost, ...prevPosts]);
-  // };
   return (
     <div className="timeline">
       <div className="timeline__post">
@@ -32,18 +29,17 @@ function Timeline() {
             key={post?.id}
             peedId={post?.id}
             user={post?.userName}
-            postImage={post?.poseImage}
+            postImage={post?.postImage}//post?.image.fileName 으로 차후 교체
             likes={post?.heart.liked}
+            postText={post?.postText}
             hates={post?.heart.dislike}
             comments={post?.comments}
             getPostAll={getPostAll}
-            // replyNum={Replylist.replyNum}
           />
         ))}
       </div>
       <div className="timeline__write">
-        {/* Write 컴포넌트를 여기에 추가하고 addPost 함수를 props로 전달?하라는디 */}
-        {/* <Write addPost={addPost} /> */}
+
       </div>
     </div>
   );
